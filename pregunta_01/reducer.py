@@ -3,15 +3,27 @@
 #
 import sys
 
-count_dictionary = {}
+if __name__ == '__main__':
 
-for credit_history in sys.stdin:
-  if credit_history in count_dictionary.keys():
-    count_dictionary[credit_history] += 1
-  else:
-    count_dictionary[credit_history] = 1
-    
-for key in count_dictionary.keys():
-  key_edit=key.strip()
-  string_valor=str(count_dictionary[key])
-  print(key_edit  + "\t" + string_valor)  
+    curkey = None
+    total = 0
+
+    for line in sys.stdin:
+
+        key, val = line.split("\t")
+        val = int(val)
+
+        if key == curkey:
+
+            total += val
+
+        else:
+
+            if curkey is not None:
+
+                sys.stdout.write("{}\t{}\n".format(curkey, total))
+
+            curkey = key
+            total = val
+
+    sys.stdout.write("{}\t{}\n".format(curkey, total))

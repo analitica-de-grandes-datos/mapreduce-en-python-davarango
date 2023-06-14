@@ -2,8 +2,8 @@
 # >>> Escriba el codigo del mapper a partir de este punto <<<
 #
 import sys
+if __name__ == "__main__":
 
+    for line in sys.stdin:
 
-for fila in sys.stdin:
-  fila_separada=row.split(",")
-  print(fila_separada[2])
+        sys.stdout.write("{}\t1\n".format(line.split(",")[2]))
