@@ -3,12 +3,14 @@
 #
 import sys
 
-list = []
 
-for fila in sys.stdin:
-  fila_separada = fila.split(",")
-  list.append((fila_separada[0],fila_separada[1]))
-  list.sort(key=lambda x: x[1])
+if __name__ == '__main__':
 
-for tuple in list:
-  sys.stdout.write(tuple[0] + "," + str(tuple[1])) 
+    curkey = None
+    total = 0
+
+   
+    for line in sys.stdin:
+
+        key, val = line.strip().split("\t")
+        sys.stdout.write("{},{}\n".format(val, key))

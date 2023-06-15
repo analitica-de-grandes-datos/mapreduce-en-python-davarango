@@ -3,17 +3,30 @@
 #
 import sys
 
-dictionary = {}
+#
+# Esta funcion reduce los elementos que tienen la misma clave
+#
+if __name__ == '__main__':
 
-for row in sys.stdin:
-    fila_separada=row.split(",")
-    if   fila_separada[0] in dictionary.keys():
-        if dictionary[fila_separada[0]] < int(fila_separada[1]):
-            dictionary[fila_separada[0]] = int(fila_separada[1])
-    else:
-        dictionary[fila_separada[0]] = int(fila_separada[1])
+    curkey = None
+    max = 0
 
-for key in dictionary.keys():
-  key_edit=key.strip()
-  string_valor=str(dictionary[key])
-  print(key_edit  + "\t" + string_valor)
+    for line in sys.stdin:
+
+        key, val = line.split("\t")
+        val = int(val)
+
+        if key == curkey:
+           
+            if val > max:
+                max = val
+        else:
+           
+            if curkey is not None:
+               
+                sys.stdout.write("{}\t{}\n".format(curkey, max))
+
+            curkey = key
+            max = val
+
+    sys.stdout.write("{}\t{}\n".format(curkey, max))
