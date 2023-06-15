@@ -9,3 +9,4 @@ if __name__ == "__main__":
         columns = line.split(',')
         
         sys.stdout.write("{}\t{}\n".format(columns[3], columns[4]))
+        

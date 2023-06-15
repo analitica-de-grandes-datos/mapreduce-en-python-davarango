@@ -14,3 +14,4 @@ if __name__ == '__main__':
 
         key, val = line.strip().split("\t")
         sys.stdout.write("{},{}\n".format(val, key))
+        

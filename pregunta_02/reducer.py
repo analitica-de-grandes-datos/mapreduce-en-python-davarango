@@ -30,3 +30,4 @@ if __name__ == '__main__':
             max = val
 
     sys.stdout.write("{}\t{}\n".format(curkey, max))
+    
